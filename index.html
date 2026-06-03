@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Flight - Ram Saini & Himanshu Sisodiya (HR Studio)</title>
+    <!-- FontAwesome for global platform icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0d0e12;
+            --card-bg: #161820;
+            --accent-color: #ff0055;
+            --text-main: #ffffff;
+            --text-sub: #94a3b8;
+            --btn-hover: #e0004c;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px 10px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255, 0, 85, 0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .smartlink-container {
+            width: 100%;
+            max-width: 480px;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            padding: 30px 20px;
+            text-align: center;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .availability-banner {
+            background: linear-gradient(90deg, #ff0055, #bf003f);
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(255, 0, 85, 0.3);
+        }
+
+        .platform-logos-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 14px;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .platform-logos-grid i, .platform-logos-grid span {
+            font-size: 22px;
+            color: var(--text-sub);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .track-header {
+            margin-bottom: 30px;
+        }
+
+        .track-title {
+            font-size: 34px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+            background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .track-artists {
+            font-size: 18px;
+            color: var(--text-sub);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .track-studio {
+            font-size: 13px;
+            color: var(--accent-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .links-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 35px;
+        }
+
+        .link-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px;
+            padding: 16px 20px;
+            transition: transform 0.2s, border-color 0.2s, background-color 0.2s;
+            text-decoration: none;
+        }
+
+        .link-row:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 0, 85, 0.5);
+            background-color: rgba(255, 255, 255, 0.06);
+        }
+
+        .platform-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .platform-info i {
+            font-size: 32px;
+        }
+
+        .fa-spotify { color: #1DB954; }
+        .fa-amazon { color: #00A8E1; }
+        .fa-apple { color: #FA243C; }
+        .fa-instagram { color: #E1306C; }
+
+        .platform-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .action-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .instagram-section {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+        }
+
+        .instagram-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 16px;
+            font-size: 20px;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(220, 39, 67, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .instagram-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 25px rgba(220, 39, 67, 0.4);
+        }
+
+        .instagram-btn i {
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="smartlink-container">
+        
+        <!-- BANNER -->
+        <div class="availability-banner">
+            🔥 Full Song Available On
+        </div>
+
+        <!-- ROUTINE PLATFORMS GRID -->
+        <div class="platform-logos-grid">
+            <i class="fab fa-spotify" title="Spotify"></i>
+            <i class="fab fa-apple" title="Apple Music"></i>
+            <i class="fab fa-amazon" title="Amazon Music"></i>
+            <i class="fab fa-youtube" title="YouTube Music"></i>
+            <i class="fab fa-deezer" title="Deezer"></i>
+            <i class="fab fa-soundcloud" title="SoundCloud"></i>
+            <i class="fab fa-tidal" title="Tidal"></i>
+            <i class="fas fa-music" title="JioSaavn"></i>
+            <span style="font-weight:bold; font-size:12px;">WYNK</span>
+            <span style="font-weight:bold; font-size:12px;">GAANA</span>
+            <span style="font-weight:bold; font-size:12px;">HUNGAMA</span>
+            <span style="font-weight:bold; font-size:12px;">BOOMPLAY</span>
+        </div>
+
+        <!-- TRACK INFO -->
+        <div class="track-header">
+            <h1 class="track-title">First Flight</h1>
+            <p class="track-artists">Ram Saini & Himanshu Sisodiya</p>
+            <p class="track-studio">Produced by HR Studio</p>
+        </div>
+
+        <!-- BIG PLATFORM ROWS -->
+        <div class="links-stack">
+            
+            <!-- SPOTIFY -->
+            <a href="https://open.spotify.com/track/6Sj3tC1heynSgXC66ak8ZR?si=8PA1zB1OQw6gly9JooEeFA" target="_blank" class="link-row">
+                <div class="platform-info">
+                    <i class="fab fa-spotify"></i>
+                    <span class="platform-name">Spotify</span>
+                </div>
+                <div class="action-btn">Play</div>
+            </a>
+
+            <!-- AMAZON MUSIC -->
+            <a href="https://amazon.com/music/player/albums/B0H3MB8JC4?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_9cAfeptPpDZMgl31ioUiAhpBU" target="_blank" class="link-row">
+                <div class="platform-info">
+                    <i class="fab fa-amazon"></i>
+                    <span class="platform-name">Amazon Music</span>
+                </div>
+                <div class="action-btn">Play</div>
+            </a>
+
+            <!-- ITUNES / APPLE MUSIC -->
+            <a href="https://music.apple.com/in/search?term=First%20Flight%20Ram%20Saini" target="_blank" class="link-row">
+                <div class="platform-info">
+                    <i class="fab fa-apple"></i>
+                    <span class="platform-name">iTunes</span>
+                </div>
+                <div class="action-btn">Listen</div>
+            </a>
+
+        </div>
+
+        <!-- BIG INSTAGRAM BUTTON -->
+        <div class="instagram-section">
+            <a href="https://www.instagram.com/hrstudio891?igsh=eGl1ZnI5dm5kejk2" target="_blank" class="instagram-btn">
+                <i class="fab fa-instagram"></i> Follow HR Studio
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
